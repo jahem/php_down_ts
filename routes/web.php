@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::group(['namespace' => 'Web','prefix' => 'test'], function () {
-    Route::any('/index', 'TestController@index');
+Route::group(['namespace' => 'Web'], function () {
+    Route::any('/', 'TestController@index');
 });
