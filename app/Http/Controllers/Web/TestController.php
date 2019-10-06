@@ -9,9 +9,10 @@ class TestController extends Controller {
 
     //
     public function index(Request $request) {
+        ini_set('max_execution_time', '0');
         $video_name = $request->get("video_name");
-        $m3u8Url = $request->get("m3u8_url");
-        $m3u8CatalogStr = file_get_contents($m3u8Url);
+        $m3u8CatalogUrl = $request->get("m3u8_url");
+        $m3u8CatalogStr = file_get_contents($m3u8CatalogUrl);
         $m3u8CatalogArr = explode("\n", $m3u8CatalogStr);
         $tsCatalog = [];
         $m3u8CatalogUrlArr = explode("/", $m3u8CatalogUrl);
