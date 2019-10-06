@@ -29,6 +29,9 @@ class TestController extends Controller {
                 }
             }
         }
+        if ($request->get("yes", "") == "") {
+            return view('welcome')->with("tsCatalog", implode("\n", $tsCatalog));
+        }
         $dir = storage_path('app/public');
         $path = sprintf('/%s/', $video_name);
         $tmp_dir = $dir . $path;
